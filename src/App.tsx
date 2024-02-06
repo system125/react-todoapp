@@ -1,26 +1,58 @@
-import React from 'react';
+import React, {useState,useReducer,useRef, useEffect} from 'react';
 import logo from './logo.svg';
 import './App.css';
+import {reducer,Action,ToDo} from './model'
+import { ToDoItem } from './component/ToDoItem';
 
-function App() {
+const App:React.FC = () =>{
+  const [name,setName] = useState('')
+  const [todos,dispatch] = useReducer(reducer,[])
+
+  const handleSubmit = (e:React.FormEvent<HTMLFormElement>) =>{
+    e.preventDefault();
+
+    dispatch({action:"Submit",todo:name})
+    setName("")
+  }
+  const inputRef = useRef<HTMLInputElement>(null)
+
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <header>
+      <h1>ToDoList</h1>
+    </header>
+    <form onSubmit={(e) =>{
+        handleSubmit(e)
+        inputRef.current?.blur()
+    } }>
+      <div className='input'>
+      <input 
+        type="text"
+        ref = {inputRef}
+        value={name}
+        className='input--textbox'
+        onChange={e=> setName(e.target.value)}
+      />
+      <button className='input--btn' type='submit'>Go</button>
+      </div>
+
+    </form>
+    <div className='List-Containers'>
+    <ul className='No-Bullets'>
+        {
+          
+          todos.map((todo) => (
+            <li key={todo.id}>
+              <ToDoItem todo={todo} dispatch={dispatch}/>
+            </li>
+          ))
+        }
+      </ul>
     </div>
-  );
+
+    </div>
+  )
 }
 
 export default App;

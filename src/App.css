@@ -1,38 +1,125 @@
-.App {
-  text-align: center;
+body{
+  background-color: black;
+  color: white;
+
+
+  
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+p{
+  color:white;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App{
   display: flex;
   flex-direction: column;
+  width: 100vw;
+  height: 100vh;
+  align-items: center;
+  border: 2px solid snow;
+}
+
+.App header{
+  font-size: 42;
+  color:burlywood;
+}
+
+.column h1{
+  color: goldenrod;
+  text-align: center;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin: 5px 10px;
+}
+
+.input{
+  display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  width: 95vw;
+  margin-left:  auto;
+  margin-right: auto;
+  border:solid 2px salmon;
+  position: relative;
+  height: 2rem;
 }
 
-.App-link {
-  color: #61dafb;
+.input--textbox{
+  height: 100%;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: inherit;
+  font-size: 24px;
+  border-radius: 50px;
+  transition: 0.2ms all;
+  padding-left: 1rem;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.input--textbox:focus{
+  box-shadow: 0px 0px 10px 1000px rgba(255, 255, 255, 0.3);
+}
+
+.input--btn{
+  position: absolute;
+  color:white;
+  right: 10px;
+  top: 4px;
+  width: 30px;
+  height: 30px;
+  background-color: limegreen;
+  border-radius: 30px;
+}
+
+.input--btn:hover{
+  background-color: #388ae2;
+}
+
+.input--btn:active{
+  transform: scale(0.8);
+  transition: 0.2ms all;
+}
+
+.No-Bullets{
+  list-style-type: none;
+  border: solid 2px red;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-evenly;
+  padding-left: 0px;
+
+
+}
+.List-Containers{
+  width: 100%;
+  height: 100%;
+  margin: 2rem 8px;
+}
+.container{
+  width: 45vw;
+  height: 4rem;
+  background-color: greenyellow;
+  display: flex;
+  flex-direction: column-reverse;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  opacity: .6;
+}
+
+.todo--text{
+  flex: 1;
+  color:black;
+}
+
+.todo--text input{
+  color: black;
+}
+.check--btn:hover{
+  cursor: pointer;
 }
